@@ -4,7 +4,6 @@ let PORT = process.env.PORT
 let MONGODB_URI = process.env.MONGODB_URI
 let USDZAR_LINK = process.env.USDZARLINK
 let EURZAR_LINK = process.env.EURZARLINK
-// let SECRET = process.env.SECRET
 
 if(process.env.NODE_ENV === "test"){
    MONGODB_URI = process.env.TEST_MONGODB_URI

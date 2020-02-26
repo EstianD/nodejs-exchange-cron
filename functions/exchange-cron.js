@@ -14,17 +14,16 @@ const runCron = async () => {
    const exchangeEntry = await Exchange.findOne({ tag: 1 })
    console.log(exchangeEntry)
 
+
+
    // CHECK IF ENTRY EXISTS
    if(exchangeEntry){
-      // UPDATE EXCHANGE RATE
-      let query = { tag: 1 }
-      exchangeEntry.update(query, {
-         "createdAt": new Date(),
-         "exchangeRate": {
-            "usd": usdZarExchangeRate,
-            "eur": eurZarExchangeRate
-         }
-      }) 
+
+      // UPDATE ENTRY
+      exchangeEntry.createdAt = new Date()
+      exchangeEntry.exchangeRate.usd = usdZarExchangeRate
+      exchangeEntry.exchangeRate.eur = eurZarExchangeRate
+      exchangeEntry.save()
 
    } else {
       // NEW EXCHANGE
